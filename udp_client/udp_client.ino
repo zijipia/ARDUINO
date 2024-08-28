@@ -23,17 +23,17 @@ void loop() {
   if (packetSize) {
     char replyBuffer[255];
     Udp.read(replyBuffer, 255);
-    Serial.print("Reply from");
+    Serial.print("Reply from ");
     Serial.println(Udp.remoteIP());
 
     Serial.println(replyBuffer);
 
   }
 
-  // Kiểm tra nếu có dữ liệu từ Serial
+
   if (Serial.available() > 0) {
-    String message = Serial.readStringUntil('\n'); // Đọc toàn bộ dòng từ Serial
-    sendPacket(message.c_str()); // Gửi dữ liệu đến server
+    String message = Serial.readStringUntil('\n');
+    sendPacket(message.c_str());
   }
 }
 
